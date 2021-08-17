@@ -8,9 +8,8 @@ RUN set -eux \
 		nodejs-current \
 		npm
 
-ARG VERSION=latest
 RUN set -eux \
-	&& npm install global --production --remove-dev eslint @microsoft/eslint-formatter-sarif; \
+	&& npm install global --production --remove-dev eslint @microsoft/eslint-formatter-sarif \
 	&& /node_modules/eslint/bin/eslint.js --version | grep -E '^v?[0-9]+'
 
 # Remove unecessary files

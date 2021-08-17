@@ -13,7 +13,7 @@ on:
       release_description:
         description: "Release notes"
         required: true
-        default: "enter release notes"
+        default: "enter  notes"
 
 jobs:
   release-build-docker:

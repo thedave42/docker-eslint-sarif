@@ -51,5 +51,5 @@ RUN set -eux \
 	&& ln -sf /node_modules/eslint/bin/eslint.js /usr/bin/eslint
 
 WORKDIR /data
-ENTRYPOINT ["/usr/bin/eslint," "-f", "@microsoft/eslint-formatter-sarif"]
+ENTRYPOINT ["eslint"]
 CMD ["--help"]

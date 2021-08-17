@@ -45,11 +45,11 @@ FROM alpine:latest
 LABEL \
 	maintainer="the Dave <dave@digitalnosie.net>" \
 	repo="https://github.com/cytopia/docker-eslint"
-COPY --from=builder /eslint/node_modules/ /eslint/node_modules/
+COPY --from=builder /eslint/node_modules/ /node_modules/
 RUN set -eux \
 	&& apk add --no-cache nodejs-current \
-	&& ln -sf /eslint/node_modules/eslint/bin/eslint.js /usr/bin/eslint
+	&& ln -sf /node_modules/eslint/bin/eslint.js /usr/bin/eslint
 
 WORKDIR /data
-ENTRYPOINT ["eslint," "-f", "@microsoft/eslint-formatter-sarif"]
+ENTRYPOINT ["/usr/bin/eslint," "-f", "@microsoft/eslint-formatter-sarif"]
 CMD ["--help"]

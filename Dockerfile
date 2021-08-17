@@ -8,6 +8,8 @@ RUN set -eux \
 		nodejs-current \
 		npm
 
+WORKDIR /eslint
+COPY ./ /eslint
 RUN set -eux \
 	&& npm install global --production --remove-dev eslint @microsoft/eslint-formatter-sarif \
 	&& /node_modules/eslint/bin/eslint.js --version | grep -E '^v?[0-9]+'
